@@ -2,16 +2,21 @@ package ni.edu.uam.ADMINJAVIER.modelo;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.openxava.annotations.*;
 import org.hibernate.annotations.GenericGenerator;
-import org.openxava.annotations.DescriptionsList;
-import org.openxava.annotations.Hidden;
-import org.openxava.annotations.Required;
 
 import javax.persistence.*;
 
 @Entity
-@Getter @Setter
-public class Candidato {
+@Table(
+        uniqueConstraints = @UniqueConstraint(
+                columnNames = {"evento_id", "nombre"}
+        )
+)
+@Getter
+@Setter
+public class Categoria {
+
     @Id
     @Hidden
     @GeneratedValue(generator="system-uuid")
@@ -24,17 +29,8 @@ public class Candidato {
     @DescriptionsList
     private Evento evento;
 
-    @ManyToOne(optional = false)
-    @JoinColumn(name="facultad_id")
-    @DescriptionsList
-    private Facultad facultad;
-
+    @SearchKey
     @Required
-    @Column(length = 255)
+    @Column(length=50)
     private String nombre;
-
-    @ManyToOne
-    @JoinColumn(name="pareja_id")
-    @DescriptionsList(descriptionProperties="descripcion")
-    private Pareja pareja;
 }

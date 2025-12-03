@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE controllers PUBLIC "-//OpenXava//DTD Controllers 2.0//EN"
+        "http://www.openxava.org/dtd/controllers2.dtd">
+
+<controllers>
+    <controller name="OnlyList">
+        <action name="List.filter"/>
+        <action name="List.orderBy"/>
+        <action name="List.refresh"/>
+        <action name="List.exportToExcel"/>
+    </controller>
+</controllers>

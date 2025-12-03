@@ -22,7 +22,7 @@ public class Evento {
     private String oid;
 
     @Column(length=50)
-    private String descripcion;
+    private String nombre;
 
     @TextArea
     private String notas;

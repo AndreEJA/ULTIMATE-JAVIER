@@ -23,6 +23,6 @@ public class Facultad {
     @Column(length=120)
     private String nombre;
 
-    @Column(length=10)
+    @Column(length=10, unique = true)
     private String acronimo;
 }
