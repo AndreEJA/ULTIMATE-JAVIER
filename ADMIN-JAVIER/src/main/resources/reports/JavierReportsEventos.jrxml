@@ -17,7 +17,8 @@
     <!-- ESTILOS -->
     <style name="TitleStyle" fontName="SansSerif" fontSize="18" isBold="true"/>
     <style name="SubTitleStyle" fontName="SansSerif" fontSize="11" isItalic="true"/>
-    <style name="TableHeader" mode="Opaque" backcolor="#DDDDDD"
+    <style name="TableHeader" mode="Opaque" backcolor="#3652a5"
+           forecolor="#FFFFFF"
            fontName="SansSerif" fontSize="10" isBold="true" pdfFontName="Helvetica-Bold"/>
     <style name="TableDetail" fontName="SansSerif" fontSize="9"/>
 
@@ -25,9 +26,9 @@
     <queryString><![CDATA[]]></queryString>
 
     <!-- CAMPOS: exactamente como salen en el TableModel -->
-    <field name="Name" class="java.lang.Object"/>
-    <field name="Notas" class="java.lang.Object"/>
-    <field name="State" class="java.lang.Object"/>
+    <field name="COLUMN_0" class="java.lang.Object"/>
+    <field name="COLUMN_1" class="java.lang.Object"/>
+    <field name="COLUMN_2" class="java.lang.Object"/>
 
     <background>
         <band splitType="Stretch"/>
@@ -35,18 +36,34 @@
 
     <!-- TÍTULO -->
     <title>
-        <band height="70">
+        <band height="140">
+
+            <!-- Logo centrado -->
+            <image>
+                <reportElement x="174" y="0" width="335" height="80"/>
+                <imageExpression><![CDATA["reports/header.jpeg"]]></imageExpression>
+            </image>
+
+            <!-- LOGO ARRIBA, CENTRADO
+            <image scaleImage="RetainShape" hAlign="Center" vAlign="Top" onErrorType="Error">
+                <reportElement x="0" y="0" width="555" height="60"/>
+                <imageExpression><![CDATA[$P{REPORT_CLASS_LOADER}.getResourceAsStream("images/header.jpeg")]]></imageExpression>
+            </image>
+            -->
+
+            <!-- TÍTULO DEBAJO DEL LOGO -->
             <staticText>
-                <reportElement x="0" y="10" width="555" height="25" style="TitleStyle"/>
+                <reportElement x="0" y="70" width="555" height="25" style="TitleStyle"/>
                 <textElement textAlignment="Center" verticalAlignment="Middle"/>
                 <text><![CDATA[Reporte de Eventos]]></text>
             </staticText>
 
             <staticText>
-                <reportElement x="0" y="40" width="555" height="15" style="SubTitleStyle"/>
+                <reportElement x="0" y="100" width="555" height="15" style="SubTitleStyle"/>
                 <textElement textAlignment="Center"/>
                 <text><![CDATA[Javier]]></text>
             </staticText>
+
         </band>
     </title>
 
@@ -69,6 +86,7 @@
 
             <!-- State -->
             <staticText>
+
                 <reportElement x="400" y="5" width="155" height="20" style="TableHeader"/>
                 <textElement textAlignment="Center" verticalAlignment="Middle"/>
                 <text><![CDATA[Estado]]></text>
@@ -83,21 +101,21 @@
             <textField isStretchWithOverflow="true" isBlankWhenNull="true">
                 <reportElement x="0" y="0" width="250" height="15" style="TableDetail"/>
                 <textElement verticalAlignment="Middle"/>
-                <textFieldExpression><![CDATA[$F{Name}]]></textFieldExpression>
+                <textFieldExpression><![CDATA[$F{COLUMN_0}]]></textFieldExpression>
             </textField>
 
             <!-- Notas -->
             <textField isStretchWithOverflow="true" isBlankWhenNull="true">
                 <reportElement x="250" y="0" width="150" height="15" style="TableDetail"/>
                 <textElement textAlignment="Center" verticalAlignment="Middle"/>
-                <textFieldExpression><![CDATA[$F{Notas}]]></textFieldExpression>
+                <textFieldExpression><![CDATA[$F{COLUMN_1}]]></textFieldExpression>
             </textField>
 
             <!-- State -->
             <textField isStretchWithOverflow="true" isBlankWhenNull="true">
                 <reportElement x="400" y="0" width="155" height="15" style="TableDetail"/>
                 <textElement textAlignment="Center" verticalAlignment="Middle"/>
-                <textFieldExpression><![CDATA[$F{State}]]></textFieldExpression>
+                <textFieldExpression><![CDATA[$F{COLUMN_2}]]></textFieldExpression>
             </textField>
         </band>
     </detail>
