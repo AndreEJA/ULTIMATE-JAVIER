@@ -14,11 +14,12 @@
         bottomMargin="20">
 
     <!-- ESTILOS -->
-    <style name="TitleStyle" fontName="SansSerif" fontSize="22" isBold="true"/>
-    <style name="SubTitleStyle" fontName="SansSerif" fontSize="12" isItalic="true"/>
-    <style name="TableHeader" mode="Opaque" backcolor="#DDDDDD"
-           fontName="SansSerif" fontSize="11" isBold="true" pdfFontName="Helvetica-Bold"/>
-    <style name="TableDetail" fontName="SansSerif" fontSize="10"/>
+    <style name="TitleStyle" fontName="SansSerif" fontSize="18" isBold="true"/>
+    <style name="SubTitleStyle" fontName="SansSerif" fontSize="11" isItalic="true"/>
+    <style name="TableHeader" mode="Opaque" backcolor="#3652a5"
+           forecolor="#FFFFFF"
+           fontName="SansSerif" fontSize="10" isBold="true" pdfFontName="Helvetica-Bold"/>
+    <style name="TableDetail" fontName="SansSerif" fontSize="9"/>
 
     <!-- Sin query -->
     <queryString><![CDATA[]]></queryString>
@@ -31,18 +32,21 @@
 
     <!-- TÍTULO -->
     <title>
-        <band height="90">
+        <band height="140">
+
+
+            <!-- Logo centrado -->
+            <image>
+                <reportElement x="174" y="0" width="335" height="80"/>
+                <imageExpression><![CDATA["reports/header.jpeg"]]></imageExpression>
+            </image>
+
             <staticText>
-                <reportElement x="0" y="10" width="555" height="30" style="TitleStyle"/>
+                <reportElement x="0" y="70" width="555" height="25" style="TitleStyle"/>
                 <textElement textAlignment="Center" verticalAlignment="Middle"/>
                 <text><![CDATA[Reporte de Candidatos]]></text>
             </staticText>
 
-            <staticText>
-                <reportElement x="0" y="45" width="555" height="20" style="SubTitleStyle"/>
-                <textElement textAlignment="Center" verticalAlignment="Middle"/>
-                <text><![CDATA[Javier]]></text>
-            </staticText>
         </band>
     </title>
 

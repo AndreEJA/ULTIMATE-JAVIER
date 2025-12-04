@@ -58,11 +58,6 @@
                 <text><![CDATA[Reporte de Eventos]]></text>
             </staticText>
 
-            <staticText>
-                <reportElement x="0" y="100" width="555" height="15" style="SubTitleStyle"/>
-                <textElement textAlignment="Center"/>
-                <text><![CDATA[Javier]]></text>
-            </staticText>
 
         </band>
     </title>
