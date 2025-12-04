@@ -95,7 +95,7 @@
             <!-- Name -->
             <textField isStretchWithOverflow="true" isBlankWhenNull="true">
                 <reportElement x="0" y="0" width="250" height="15" style="TableDetail"/>
-                <textElement verticalAlignment="Middle"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
                 <textFieldExpression><![CDATA[$F{COLUMN_0}]]></textFieldExpression>
             </textField>
 
