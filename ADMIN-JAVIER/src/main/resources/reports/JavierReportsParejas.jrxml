@@ -14,83 +14,94 @@
         bottomMargin="20"
         uuid="dddddddd-dddd-dddd-dddd-dddddddddddd">
 
+
+<!-- ESTILOS -->
     <style name="TitleStyle" fontName="SansSerif" fontSize="18" isBold="true"/>
     <style name="SubTitleStyle" fontName="SansSerif" fontSize="11" isItalic="true"/>
-    <style name="TableHeader" mode="Opaque" backcolor="#DDDDDD"
+    <style name="TableHeader" mode="Opaque" backcolor="#3652a5"
+           forecolor="#FFFFFF"
            fontName="SansSerif" fontSize="10" isBold="true" pdfFontName="Helvetica-Bold"/>
     <style name="TableDetail" fontName="SansSerif" fontSize="9"/>
-
+    <!-- Sin query porque usas JRTableModelDataSource -->
     <queryString><![CDATA[]]></queryString>
 
-    <!-- Ajusta los nombres a tu modelo -->
-    <field name="NombrePareja" class="java.lang.Object"/>
-    <field name="Candidato1" class="java.lang.Object"/>
-    <field name="Candidato2" class="java.lang.Object"/>
+    <field name="COLUMN_0" class="java.lang.Object"/>
+    <field name="COLUMN_1" class="java.lang.Object"/>
+    <field name="COLUMN_2" class="java.lang.Object"/>
 
     <background>
         <band splitType="Stretch"/>
     </background>
 
+    <!-- TÍTULO -->
     <title>
-        <band height="70">
+        <band height="140">
+
+            <image>
+                <reportElement x="174" y="0" width="335" height="80"/>
+                <imageExpression><![CDATA["reports/header.jpeg"]]></imageExpression>
+            </image>
+
+
             <staticText>
-                <reportElement x="0" y="10" width="555" height="25" style="TitleStyle"/>
+                <reportElement x="0" y="70" width="555" height="25" style="TitleStyle"/>
                 <textElement textAlignment="Center" verticalAlignment="Middle"/>
                 <text><![CDATA[Reporte de Parejas]]></text>
             </staticText>
 
-            <staticText>
-                <reportElement x="0" y="40" width="555" height="15" style="SubTitleStyle"/>
-                <textElement textAlignment="Center"/>
-                <text><![CDATA[Javier]]></text>
-            </staticText>
         </band>
     </title>
 
+    <!-- CABECERA -->
     <pageHeader>
         <band height="25">
             <staticText>
                 <reportElement x="0" y="5" width="200" height="20" style="TableHeader"/>
                 <textElement textAlignment="Center" verticalAlignment="Middle"/>
-                <text><![CDATA[Pareja]]></text>
+                <text><![CDATA[Evento]]></text>
             </staticText>
 
             <staticText>
                 <reportElement x="200" y="5" width="180" height="20" style="TableHeader"/>
                 <textElement textAlignment="Center" verticalAlignment="Middle"/>
-                <text><![CDATA[Candidato 1]]></text>
+                <text><![CDATA[Facultad]]></text>
             </staticText>
 
             <staticText>
                 <reportElement x="380" y="5" width="175" height="20" style="TableHeader"/>
                 <textElement textAlignment="Center" verticalAlignment="Middle"/>
-                <text><![CDATA[Candidato 2]]></text>
+                <text><![CDATA[Descripción]]></text>
             </staticText>
         </band>
     </pageHeader>
 
+    <!-- DETALLE -->
     <detail>
         <band height="18">
+            <!-- Pareja (COLUMN_0) -->
             <textField isStretchWithOverflow="true" isBlankWhenNull="true">
                 <reportElement x="0" y="0" width="200" height="15" style="TableDetail"/>
-                <textElement verticalAlignment="Middle"/>
-                <textFieldExpression><![CDATA[$F{NombrePareja}]]></textFieldExpression>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{COLUMN_0}]]></textFieldExpression>
             </textField>
 
+            <!-- Candidato 1 (COLUMN_1) -->
             <textField isStretchWithOverflow="true" isBlankWhenNull="true">
                 <reportElement x="200" y="0" width="180" height="15" style="TableDetail"/>
-                <textElement verticalAlignment="Middle"/>
-                <textFieldExpression><![CDATA[$F{Candidato1}]]></textFieldExpression>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{COLUMN_1}]]></textFieldExpression>
             </textField>
 
+            <!-- Candidato 2 (COLUMN_2) -->
             <textField isStretchWithOverflow="true" isBlankWhenNull="true">
                 <reportElement x="380" y="0" width="175" height="15" style="TableDetail"/>
-                <textElement verticalAlignment="Middle"/>
-                <textFieldExpression><![CDATA[$F{Candidato2}]]></textFieldExpression>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{COLUMN_2}]]></textFieldExpression>
             </textField>
         </band>
     </detail>
 
+    <!-- PIE DE PÁGINA -->
     <pageFooter>
         <band height="20">
             <textField>
@@ -100,4 +111,5 @@
             </textField>
         </band>
     </pageFooter>
+
 </jasperReport>
