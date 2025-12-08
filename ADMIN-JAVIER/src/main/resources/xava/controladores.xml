@@ -20,5 +20,46 @@
                 clase="acciones.CrearProfesor"/>        
     </controlador>
     -->
+    <controlador nombre="Evento">
+        <hereda-de controlador="Typical"/>
+        <accion nombre="Imprimir Eventos" icono="printer" modo="list"
+                clase="ni.edu.uam.ADMINJAVIER.report.actions.PrintEventosListAction"/>
+    </controlador>
+
+    <controlador nombre="Facultad">
+        <hereda-de controlador="Typical"/>
+        <accion nombre="Imprimir Facultades" icono="printer" modo="list"
+                clase="ni.edu.uam.ADMINJAVIER.report.actions.PrintFacultadReportAction"/>
+    </controlador>
+
+    <controlador nombre="Categoria">
+        <hereda-de controlador="Typical"/>
+        <accion nombre="Imprimir Categorias" icono="printer" modo="list"
+                clase="ni.edu.uam.ADMINJAVIER.report.actions.PrintCategoriaReportAction"/>
+    </controlador>
+
+    <controlador nombre="Candidato">
+        <hereda-de controlador="Typical"/>
+        <accion nombre="Imprimir Candidatos" icono="printer" modo="list"
+                clase="ni.edu.uam.ADMINJAVIER.report.actions.PrintCandidatoReportAction"/>
+    </controlador>
+
+    <controlador nombre="Pareja">
+        <hereda-de controlador="Typical"/>
+        <accion nombre="Imprimir Parejas" icono="printer" modo="list"
+                clase="ni.edu.uam.ADMINJAVIER.report.actions.PrintParejaReportAction"/>
+    </controlador>
+
+    <controlador nombre="Voto">
+        <hereda-de controlador="Typical"/>
+        <accion nombre="Imprimir Votos" icono="printer" modo="list"
+                clase="ni.edu.uam.ADMINJAVIER.report.actions.PrintVotoReportAction"/>
+    </controlador>
+
+    <controlador nombre="VotoDetalle">
+        <hereda-de controlador="Typical"/>
+        <accion nombre="Imprimir Detalle de votos" icono="printer" modo="list"
+                clase="ni.edu.uam.ADMINJAVIER.report.actions.PrintVotoDetalleReportAction"/>
+    </controlador>
     
 </controladores>

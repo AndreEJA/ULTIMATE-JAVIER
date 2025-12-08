@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport
+        xmlns="http://jasperreports.sourceforge.net/jasperreports"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+        name="VotoReport"
+        language="java"
+        pageWidth="595"
+        pageHeight="842"
+        columnWidth="555"
+        leftMargin="20"
+        rightMargin="20"
+        topMargin="20"
+        bottomMargin="20"
+        uuid="eeeeeeee-eeee-eeee-eeee-eeeeeeeeeeee">
+
+    <!-- ESTILOS -->
+    <style name="TitleStyle" fontName="SansSerif" fontSize="18" isBold="true"/>
+    <style name="SubTitleStyle" fontName="SansSerif" fontSize="11" isItalic="true"/>
+    <style name="TableHeader" mode="Opaque" backcolor="#3652a5"
+           forecolor="#FFFFFF"
+           fontName="SansSerif" fontSize="10" isBold="true" pdfFontName="Helvetica-Bold"/>
+    <style name="TableDetail" fontName="SansSerif" fontSize="9"/>
+
+    <!-- Sin query porque usas JRTableModelDataSource -->
+    <queryString><![CDATA[]]></queryString>
+
+    <!-- Usamos SOLO las columnas 2, 3 y 4 del Tab -->
+    <!-- COLUMN_2 -> Category -->
+    <!-- COLUMN_3 -> Pareja -->
+    <!-- COLUMN_4 -> Ranking -->
+    <field name="COLUMN_2" class="java.lang.Object"/>
+    <field name="COLUMN_3" class="java.lang.Object"/>
+    <field name="COLUMN_4" class="java.lang.Object"/>
+
+    <background>
+        <band splitType="Stretch"/>
+    </background>
+
+    <!-- TÍTULO -->
+    <title>
+        <band height="140">
+
+            <image>
+                <reportElement x="174" y="0" width="335" height="80"/>
+                <imageExpression><![CDATA["reports/header.jpeg"]]></imageExpression>
+            </image>
+
+            <staticText>
+                <reportElement x="0" y="70" width="555" height="25" style="TitleStyle"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <text><![CDATA[Reporte de Votos por Pareja]]></text>
+            </staticText>
+
+        </band>
+    </title>
+
+    <!-- CABECERA DE PÁGINA -->
+    <pageHeader>
+        <band height="25">
+            <!-- Category -->
+            <staticText>
+                <reportElement x="0" y="5" width="240" height="20" style="TableHeader"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <text><![CDATA[Categoría]]></text>
+            </staticText>
+
+            <!-- Pareja -->
+            <staticText>
+                <reportElement x="240" y="5" width="215" height="20" style="TableHeader"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <text><![CDATA[Pareja]]></text>
+            </staticText>
+
+            <!-- Ranking -->
+            <staticText>
+                <reportElement x="455" y="5" width="100" height="20" style="TableHeader"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <text><![CDATA[Ranking]]></text>
+            </staticText>
+        </band>
+    </pageHeader>
+
+    <!-- DETALLE -->
+    <detail>
+        <band height="18">
+            <!-- Category (COLUMN_2) -->
+            <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+                <reportElement x="0" y="0" width="240" height="15" style="TableDetail"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{COLUMN_2}]]></textFieldExpression>
+            </textField>
+
+            <!-- Pareja (COLUMN_3) -->
+            <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+                <reportElement x="240" y="0" width="215" height="15" style="TableDetail"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{COLUMN_3}]]></textFieldExpression>
+            </textField>
+
+            <!-- Ranking (COLUMN_4) -->
+            <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+                <reportElement x="455" y="0" width="100" height="15" style="TableDetail"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{COLUMN_4}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+
+    <!-- PIE DE PÁGINA -->
+    <pageFooter>
+        <band height="20">
+            <textField>
+                <reportElement x="0" y="0" width="555" height="15"/>
+                <textElement textAlignment="Right"/>
+                <textFieldExpression><![CDATA["Página " + $V{PAGE_NUMBER}]]></textFieldExpression>
+            </textField>
+        </band>
+    </pageFooter>
+
+</jasperReport>

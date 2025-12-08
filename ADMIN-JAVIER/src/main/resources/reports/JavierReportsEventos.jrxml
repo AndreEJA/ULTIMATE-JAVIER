@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport
+        xmlns="http://jasperreports.sourceforge.net/jasperreports"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+        name="EventosReport"
+        language="java"
+        pageWidth="595"
+        pageHeight="842"
+        columnWidth="555"
+        leftMargin="20"
+        rightMargin="20"
+        topMargin="20"
+        bottomMargin="20"
+        uuid="11111111-1111-1111-1111-111111111111">
+
+    <!-- ESTILOS -->
+    <style name="TitleStyle" fontName="SansSerif" fontSize="18" isBold="true"/>
+    <style name="SubTitleStyle" fontName="SansSerif" fontSize="11" isItalic="true"/>
+    <style name="TableHeader" mode="Opaque" backcolor="#3652a5"
+           forecolor="#FFFFFF"
+           fontName="SansSerif" fontSize="10" isBold="true" pdfFontName="Helvetica-Bold"/>
+    <style name="TableDetail" fontName="SansSerif" fontSize="9"/>
+
+    <!-- Sin query porque usas JRTableModelDataSource -->
+    <queryString><![CDATA[]]></queryString>
+
+    <!-- CAMPOS: exactamente como salen en el TableModel -->
+    <field name="COLUMN_0" class="java.lang.Object"/>
+    <field name="COLUMN_1" class="java.lang.Object"/>
+    <field name="COLUMN_2" class="java.lang.Object"/>
+
+    <background>
+        <band splitType="Stretch"/>
+    </background>
+
+    <!-- TÍTULO -->
+    <title>
+        <band height="140">
+
+            <!-- Logo centrado -->
+            <image>
+                <reportElement x="174" y="0" width="335" height="80"/>
+                <imageExpression><![CDATA["reports/header.jpeg"]]></imageExpression>
+            </image>
+
+            <!-- LOGO ARRIBA, CENTRADO
+            <image scaleImage="RetainShape" hAlign="Center" vAlign="Top" onErrorType="Error">
+                <reportElement x="0" y="0" width="555" height="60"/>
+                <imageExpression><![CDATA[$P{REPORT_CLASS_LOADER}.getResourceAsStream("images/header.jpeg")]]></imageExpression>
+            </image>
+            -->
+
+            <!-- TÍTULO DEBAJO DEL LOGO -->
+            <staticText>
+                <reportElement x="0" y="70" width="555" height="25" style="TitleStyle"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <text><![CDATA[Reporte de Eventos]]></text>
+            </staticText>
+
+
+        </band>
+    </title>
+
+    <!-- CABECERA DE PÁGINA -->
+    <pageHeader>
+        <band height="25">
+            <!-- Name -->
+            <staticText>
+                <reportElement x="0" y="5" width="250" height="20" style="TableHeader"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <text><![CDATA[Nombre]]></text>
+            </staticText>
+
+            <!-- Notas -->
+            <staticText>
+                <reportElement x="250" y="5" width="150" height="20" style="TableHeader"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <text><![CDATA[Notas]]></text>
+            </staticText>
+
+            <!-- State -->
+            <staticText>
+
+                <reportElement x="400" y="5" width="155" height="20" style="TableHeader"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <text><![CDATA[Estado]]></text>
+            </staticText>
+        </band>
+    </pageHeader>
+
+    <!-- DETALLE -->
+    <detail>
+        <band height="18">
+            <!-- Name -->
+            <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+                <reportElement x="0" y="0" width="250" height="15" style="TableDetail"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{COLUMN_0}]]></textFieldExpression>
+            </textField>
+
+            <!-- Notas -->
+            <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+                <reportElement x="250" y="0" width="150" height="15" style="TableDetail"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{COLUMN_1}]]></textFieldExpression>
+            </textField>
+
+            <!-- State -->
+            <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+                <reportElement x="400" y="0" width="155" height="15" style="TableDetail"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{COLUMN_2}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+
+    <!-- PIE DE PÁGINA -->
+    <pageFooter>
+        <band height="20">
+            <textField>
+                <reportElement x="0" y="0" width="555" height="15"/>
+                <textElement textAlignment="Right"/>
+                <textFieldExpression><![CDATA["Página " + $V{PAGE_NUMBER}]]></textFieldExpression>
+            </textField>
+        </band>
+    </pageFooter>
+
+</jasperReport>

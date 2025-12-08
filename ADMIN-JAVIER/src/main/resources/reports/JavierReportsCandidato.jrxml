@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport
+        xmlns="http://jasperreports.sourceforge.net/jasperreports"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+        name="CandidatosReport"
+        language="java"
+        pageWidth="595"
+        pageHeight="842"
+        columnWidth="555"
+        leftMargin="20"
+        rightMargin="20"
+        topMargin="20"
+        bottomMargin="20">
+
+    <!-- ESTILOS -->
+    <style name="TitleStyle" fontName="SansSerif" fontSize="18" isBold="true"/>
+    <style name="SubTitleStyle" fontName="SansSerif" fontSize="11" isItalic="true"/>
+    <style name="TableHeader" mode="Opaque" backcolor="#3652a5"
+           forecolor="#FFFFFF"
+           fontName="SansSerif" fontSize="10" isBold="true" pdfFontName="Helvetica-Bold"/>
+    <style name="TableDetail" fontName="SansSerif" fontSize="9"/>
+
+    <!-- Sin query -->
+    <queryString><![CDATA[]]></queryString>
+
+    <!-- CAMPOS -->
+    <field name="evento"   class="java.lang.String"/>
+    <field name="facultad" class="java.lang.String"/>
+    <field name="nombre"   class="java.lang.String"/>
+    <field name="pareja"   class="java.lang.String"/>
+
+    <!-- TÍTULO -->
+    <title>
+        <band height="140">
+
+
+            <!-- Logo centrado -->
+            <image>
+                <reportElement x="174" y="0" width="335" height="80"/>
+                <imageExpression><![CDATA["reports/header.jpeg"]]></imageExpression>
+            </image>
+
+            <staticText>
+                <reportElement x="0" y="70" width="555" height="25" style="TitleStyle"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <text><![CDATA[Reporte de Candidatos]]></text>
+            </staticText>
+
+        </band>
+    </title>
+
+    <!-- CABECERA DE TABLA -->
+    <pageHeader>
+        <band height="30">
+            <!-- Evento -->
+            <staticText>
+                <reportElement x="0" y="5" width="140" height="20" style="TableHeader"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <text><![CDATA[Evento]]></text>
+            </staticText>
+
+            <!-- Facultad -->
+            <staticText>
+                <reportElement x="140" y="5" width="180" height="20" style="TableHeader"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <text><![CDATA[Facultad]]></text>
+            </staticText>
+
+            <!-- Nombre -->
+            <staticText>
+                <reportElement x="320" y="5" width="120" height="20" style="TableHeader"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <text><![CDATA[Nombre]]></text>
+            </staticText>
+
+            <!-- Pareja -->
+            <staticText>
+                <reportElement x="440" y="5" width="115" height="20" style="TableHeader"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <text><![CDATA[Pareja]]></text>
+            </staticText>
+        </band>
+    </pageHeader>
+
+    <!-- DETALLE (FILAS) -->
+    <detail>
+        <band height="22">
+
+            <!-- Evento -->
+            <textField isBlankWhenNull="true">
+                <reportElement x="0" y="3" width="140" height="16" style="TableDetail"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{evento}]]></textFieldExpression>
+            </textField>
+
+            <!-- Facultad -->
+            <textField isBlankWhenNull="true">
+                <reportElement x="140" y="3" width="180" height="16" style="TableDetail"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{facultad}]]></textFieldExpression>
+            </textField>
+
+            <!-- Nombre -->
+            <textField isBlankWhenNull="true">
+                <reportElement x="320" y="3" width="120" height="16" style="TableDetail"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+            </textField>
+
+            <!-- Pareja -->
+            <textField isBlankWhenNull="true">
+                <reportElement x="440" y="3" width="115" height="16" style="TableDetail"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{pareja}]]></textFieldExpression>
+            </textField>
+
+        </band>
+    </detail>
+
+    <!-- PIE DE PÁGINA -->
+    <pageFooter>
+        <band height="20">
+            <textField>
+                <reportElement x="0" y="0" width="555" height="15"/>
+                <textElement textAlignment="Right"/>
+                <textFieldExpression><![CDATA["Página " + $V{PAGE_NUMBER}]]></textFieldExpression>
+            </textField>
+        </band>
+    </pageFooter>
+
+</jasperReport>
