@@ -1,0 +1,12 @@
+{
+	"/": [],
+	"/api/auth/login": [
+		"src/routes/api/auth/login/+server.ts"
+	],
+	"/api/votes/stats": [
+		"src/routes/api/votes/stats/+server.ts"
+	],
+	"/api/votes/submit": [
+		"src/routes/api/votes/submit/+server.ts"
+	]
+}
