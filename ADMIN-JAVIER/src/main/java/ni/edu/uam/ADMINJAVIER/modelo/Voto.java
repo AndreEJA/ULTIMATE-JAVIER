@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Base64;
 import java.util.Collection;
 import java.util.UUID;
+import java.util.Date;
 
 
 
@@ -51,7 +52,7 @@ public class Voto {
             tokenHash = sha256(token);
         }
 
-        if (creadoEn == null) creadoEn = LocalDateTime.now();
+        if (creadoEn == null) creadoEn = new Date();
     }
 
     private static String randomToken() {
@@ -79,8 +80,12 @@ public class Voto {
 
     private boolean verificado;
 
+    //@ReadOnly
+    //private LocalDateTime creadoEn = LocalDateTime.now();
     @ReadOnly
-    private LocalDateTime creadoEn = LocalDateTime.now();
+    @Column(updatable = false)
+    private Date creadoEn;
+
 
     @OneToMany(mappedBy="voto", cascade=CascadeType.ALL, orphanRemoval=true)
     @ListProperties("categoria.nombre, pareja.descripcion, ranking")

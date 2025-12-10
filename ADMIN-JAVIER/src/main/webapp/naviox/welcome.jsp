@@ -18,10 +18,6 @@
 
     <h1 class="wj-title">ADMIN</h1>
 
-    <p class="wj-tip">
-        Inicia sesión con el usuario: <b>admin</b>, contraseña: <b>admin</b>
-    </p>
-
     <a class="wj-btn" href="<%= ctx %>/m/SignIn">INICIAR SESIÓN</a>
 </main>
 </body>
