@@ -1,0 +1,160 @@
+/* ---------- Contenedor general (ligeros ajustes) ---------- */
+body{
+    margin:0;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    background:#f6f8fb;
+    color:#111827;
+}
+
+/* Contenedor: fuerza columna para que la imagen quede encima de la card */
+.signin-page{
+    min-height: calc(100vh - 40px); /* deja suficiente altura para la cabecera */
+    display:flex;
+    flex-direction: column;        /* <- importante: columna (imagen arriba, card abajo) */
+    align-items: center;           /* centra horizontalmente */
+    justify-content: flex-start;   /* empieza desde arriba */
+    padding: 12px 12px 28px;
+    gap: 8px;                      /* separación entre imagen y card (ajustable) */
+}
+
+/* contenedor de la imagen (bloque separado encima de la card) */
+.signin-top-img{
+    display:flex;
+    justify-content:center;
+    width:100%;
+    padding-top: 8px;      /* espacio superior de la página (ajustable) */
+    padding-bottom: 6px;   /* espacio entre logo y card (ajustable) */
+    box-sizing: border-box;
+}
+
+/* imagen header: limite de alto para que no empuje la card demasiado */
+.app-header__img{
+    max-height:72px;       /* ajusta si quieres más/menos */
+    width:auto;
+    object-fit:contain;
+    display:block;
+}
+
+/* la tarjeta blanca: asegura que sea bloque en columna y centrada */
+.signin-card{
+    width: 380px;
+    max-width: 94vw;
+    background:#fff;
+    border-radius:12px;
+    padding:10px 20px;
+    box-shadow: 0 18px 36px rgba(2,6,23,0.07);
+    display:block;         /* importante: que sea un bloque */
+    margin: 0;             /* quitar márgenes laterales que puedan romper el flujo */
+}
+
+/* título / encabezado de la card */
+.card-title{
+    font-size:18px;
+    font-weight:800;
+    color:#0f172a;
+    margin:0 0 6px 0;
+}
+
+/* ------------------------------------------------------------
+   Estilos para el módulo SignIn incluido (inputs, labels)
+   Ajustes para que todo quede más compacto y consistente
+   ------------------------------------------------------------ */
+.signin-module {
+    display:flex;
+    flex-direction:column;
+    gap:8px;               /* menos gap entre campos */
+}
+
+/* inputs (text/password) */
+.signin-module input[type="text"],
+.signin-module input[type="password"],
+.signin-module input[type="email"]{
+    width:100%;
+    box-sizing:border-box;
+    padding: 9px 10px;     /* menos padding dentro del input */
+    border-radius:8px;
+    border:1px solid #e7e9ee;
+    background:#fff;
+    font-size:16px;
+    outline:none;
+}
+.signin-module input:focus{
+    border-color:#c7d2fe;
+    box-shadow: 0 8px 20px rgba(99,102,241,0.06);
+}
+
+/* etiquetas (labels) */
+.signin-module label{
+    display:block;
+    font-size:13px;
+    color:#374151;
+    margin-bottom:6px;
+    font-weight:700;
+}
+
+/* ------------------------------------------------------------
+   BOTONES: ocultar el botón pequeño "ENTRAR" y usar un solo botón grande
+   - ocultamos cualquier button[type=submit] pequeño dentro de .signin-module
+   - mostramos/estilizamos .main-submit (el botón grande que nosotros creamos)
+   ------------------------------------------------------------ */
+
+/* Intentamos ocultar el botón pequeño/por defecto generado */
+.signin-module button[type="submit"],
+.signin-module input[type="submit"],
+.signin-module .small-submit,
+.signin-module .xavaSmallButton {
+    display: none !important;
+}
+
+/* Si el módulo pinta un <a> o botón con texto "Entrar", también lo escondemos */
+.signin-module a:where([class*="enter"],[class*="entrar"],.btn-small){
+    display:none !important;
+}
+
+/* Estilado para el botón grande (el que queremos mostrar) */
+.custom-big-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:100%;
+    height:52px;
+    border-radius:10px;
+    border:0;
+    background:#ef4444;       /* rojo */
+    color:#fff;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:.6px;
+    cursor:pointer;
+    box-shadow: 0 12px 28px rgba(239,68,68,0.18);
+    transition: transform .12s ease, filter .12s ease;
+    text-decoration:none;
+}
+.custom-big-btn:hover{
+    transform: translateY(-2px);
+    filter: brightness(0.98);
+}
+
+/* ------------------------------------------------------------
+   Reducir espacio entre botón y pie (fix del gran espacio)
+   ------------------------------------------------------------ */
+.card-footer{
+    font-size:12px;
+    color:#6b7280;
+    text-align:center;
+    margin-top:8px; /* reducir margin */
+    padding-bottom:6px;
+}
+
+/* Si existía un elemento extra que generaba la gran barra roja
+   (por ejemplo un <div> de ayuda), lo escondemos */
+.signin-module .big-red-bar,
+.signin-module .aux-submit-bar{
+    display:none !important;
+}
+
+/* pequeños ajustes responsivos */
+@media (max-width:420px){
+    .signin-card{ width:92vw; padding:14px; border-radius:10px; }
+    .app-header__img{ max-height:60px; }
+}

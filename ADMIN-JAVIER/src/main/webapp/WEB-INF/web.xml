@@ -4,7 +4,9 @@
 
 <web-app>
   <display-name>OpenXava Application</display-name>
-  
+  <welcome-file-list>
+    <welcome-file>naviox/index.jsp</welcome-file>
+  </welcome-file-list>
   <!-- Para cumplir con OWASP -->
   <error-page>
     <error-code>404</error-code>
@@ -14,5 +16,4 @@
     <error-code>500</error-code>
     <location>/WEB-INF/error500.html</location>
   </error-page>
-  
 </web-app>
